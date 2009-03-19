@@ -3,18 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Scenario "${1:title}" do
-  Given "${2:given}"
-  When "${3:when}"
-  Then "${4:then}"  
+	<string>context "${1:context}" do
+  $0
 end</string>
 	<key>name</key>
-	<string>Scenario</string>
+	<string>context</string>
 	<key>scope</key>
 	<string>source.ruby.rspec</string>
 	<key>tabTrigger</key>
-	<string>sce</string>
+	<string>con</string>
 	<key>uuid</key>
-	<string>FCB3248F-0AFD-4CB5-BF4F-1B7CDB807981</string>
+	<string>A373048F-BDEC-458B-8886-79058296C8DC</string>
 </dict>
 </plist>

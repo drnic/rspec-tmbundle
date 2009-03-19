@@ -3,19 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Story "${1:title}", %{
-  As a ${2:role}
-  I want ${3:feature}
-  So that ${4:value}  
-} do
-end</string>
+	<string>mock_model(${1:model})$0</string>
 	<key>name</key>
-	<string>Story</string>
+	<string>mock_model</string>
 	<key>scope</key>
 	<string>source.ruby.rspec</string>
 	<key>tabTrigger</key>
-	<string>sto</string>
+	<string>mm</string>
 	<key>uuid</key>
-	<string>73A67D49-CA5B-4B8A-9B62-003506276CDD</string>
+	<string>E71599F8-CBE4-4D08-BC3F-FC785C5860D0</string>
 </dict>
 </plist>

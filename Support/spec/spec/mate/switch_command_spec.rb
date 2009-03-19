@@ -51,9 +51,7 @@ module Spec
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe ${1:Type} do
-  it "should ${2:description}" do
-    $0
-  end
+  $0
 end
 SPEC
           SwitchCommand.new.content_for('spec', "spec/foo/zap_spec.rb").should == regular_spec
@@ -126,10 +124,25 @@ EOF
           "/a/full/path/app/views/mooky/show.html.erb",
           "/a/full/path/spec/views/mooky/show.html.erb_spec.rb"
         ]
+        
+        expect_twins [
+          "/a/full/path/app/views/mooky/show.html.haml",
+          "/a/full/path/spec/views/mooky/show.html.haml_spec.rb"
+        ]
       
         expect_twins [
           "/a/full/path/app/views/mooky/show.rhtml",
           "/a/full/path/spec/views/mooky/show.rhtml_spec.rb"
+        ]
+        
+        expect_twins [
+          "/a/full/path/app/views/mooky/show.js.rjs",
+          "/a/full/path/spec/views/mooky/show.js.rjs_spec.rb"
+        ]
+      
+        expect_twins [
+          "/a/full/path/app/views/mooky/show.rjs",
+          "/a/full/path/spec/views/mooky/show.rjs_spec.rb"
         ]
       
         expect_twins [
@@ -149,8 +162,16 @@ EOF
           "/a/full/path/spec/helpers/mooky_helper_spec.rb".should be_a("helper spec")
         end
 
-        it "should suggest view spec" do
+        it "should suggest view spec for erb" do
           "/a/full/path/spec/views/mooky/show.html.erb_spec.rb".should be_a("view spec")
+        end
+
+        it "should suggest view spec for haml" do
+          "/a/full/path/spec/views/mooky/show.html.haml_spec.rb".should be_a("view spec")
+        end
+        
+        it "should suggest an rjs view spec" do
+          "/a/full/path/spec/views/mooky/show.js.rjs_spec.rb".should be_a("view spec")
         end
 
         it "should suggest controller" do
@@ -167,6 +188,10 @@ EOF
 
         it "should suggest view" do
           "/a/full/path/app/views/mooky/show.html.erb".should be_a("view")
+        end
+        
+        it "should suggest an rjs view" do
+          "/a/full/path/app/views/mooky/show.js.rjs".should be_a("view")
         end
 
         it "should create spec that requires a helper" do
